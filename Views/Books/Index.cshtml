@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Book_Management_System.Models.Book>
+
+<h1>Books</h1>
+
+<a href="/Books/Create">Add New Book</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Published Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.Pages</td>
+                <td>@item.PublishedDate.ToShortDateString()</td>
+                <td>
+                    <a href="/Books/Edit/@item.Id">Edit</a> |
+                    <a href="/Books/Delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
